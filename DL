@@ -1,2 +1,4 @@
 
-{ "CHUANGYING_ABORT":"NO" , "TEST":"LWW" }
+{ 
+"CHUANGYING_ABORT":"NO" , "MDC":"LWW"
+}
