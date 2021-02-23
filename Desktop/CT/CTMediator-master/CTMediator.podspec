@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint JJException.podspec' to ensure this is a
+#  Be sure to run `pod spec lint CTMediator.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "JJException"
-  s.version      = "0.2.9.1"
-  s.summary      = "Handle the objective-c crash exception."
+  s.name         = "CTMediator"
+  s.version      = "28"
+  s.summary      = "CTMediator."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,10 +25,10 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                  JJException Handle the objective-c crash exception.
+  this is CTMediator
                    DESC
 
-  s.homepage     = "https://github.com/jezzmemo/JJException"
+  s.homepage     = "https://github.com/casatwy/CTMediator"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -39,7 +39,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = { :type => "MIT", :file => "LICENSE" }
+  # s.license      = "MIT (example)"
+  s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -52,10 +53,10 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "李杰" => "lijie250@gmail.com" }
-  # Or just: s.author    = "李杰"
-  # s.authors            = { "李杰" => "jezz.li@hujiang.com" }
-  # s.social_media_url   = "http://twitter.com/李杰"
+  s.author             = { "Casa Taloyum" => "casatwy@msn.com" }
+  # Or just: s.author    = "Casa Taloyum"
+  # s.authors            = { "Casa Taloyum" => "casatwy@msn.com" }
+  # s.social_media_url   = "http://twitter.com/Casa Taloyum"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -64,14 +65,13 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
-  #s.platform     = :ios, "8.0"
+  s.platform     = :ios, "7.0"
 
   #  When using multiple platforms
-  s.ios.deployment_target = "8.0"
-  s.osx.deployment_target = "10.8"
-  s.watchos.deployment_target = "2.0"
-  s.tvos.deployment_target = "9.0"
+  # s.ios.deployment_target = "5.0"
+  # s.osx.deployment_target = "10.7"
+  # s.watchos.deployment_target = "2.0"
+  # s.tvos.deployment_target = "9.0"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/jezzmemo/JJException.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/casatwy/CTMediator.git", :tag => s.version.to_s }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,50 +91,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.default_subspec = 'All'
-  s.subspec 'All' do |spec|
-    spec.dependency 'JJException/Swizzle'
-    spec.dependency 'JJException/ARC'
-    spec.dependency 'JJException/MRC'
-    spec.dependency 'JJException/Main'
-    spec.dependency 'JJException/DeallocBlock'
-  end
+  s.source_files  = "CTMediator/CTMediator/**/*.{h,m}"
+  # s.exclude_files = "Classes/Exclude"
 
-  s.subspec 'ARC' do |spec|
-    spec.requires_arc = true
-    spec.source_files  = "JJException/Source/ARC/*.{h,m}"
-    spec.dependency 'JJException/Swizzle'
-    spec.dependency 'JJException/Main'
-    spec.dependency 'JJException/DeallocBlock'
-  end
-
-  s.subspec 'Swizzle' do |spec|
-    spec.requires_arc = true
-    spec.source_files  = "JJException/Source/Swizzle/*.{h,m}"
-  end
-
-  s.subspec 'Main' do |spec|
-    spec.requires_arc = true
-    spec.public_header_files = "JJException/Source/Main/JJException.h"
-    spec.source_files  = "JJException/Source/Main/*.{h,m}"
-  end
-
-  s.subspec 'MRC' do |spec|
-    spec.requires_arc = false
-    spec.source_files  = "JJException/Source/MRC/*.{h,m}"
-    spec.dependency 'JJException/Swizzle'
-    spec.dependency 'JJException/Main'
-  end
-
-  s.subspec 'DeallocBlock' do |spec|
-    spec.requires_arc = true
-    spec.source_files  = "JJException/Source/DeallocBlock/*.{h,m}"
-  end
-
-  #s.source_files  = "JJException/Source/*.{h,m}"
-
-
-  #s.public_header_files = "JJException/Source/JJException.h"
+  # s.public_header_files = "Classes/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -157,22 +117,22 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  # s.framework  = "UIKit"
+  s.frameworks = "UIKit"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
-
-
+  
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  If your library depends on compiler flags you can set them in the xcconfig hash
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  #s.requires_arc = false
+  # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
+  # s.dependency "CTHandyCategories"
 
 end
